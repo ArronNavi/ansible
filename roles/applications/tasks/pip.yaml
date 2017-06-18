@@ -1,0 +1,8 @@
+---
+- name: pip | Install python packages
+  become: yes
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - virtualenv
+

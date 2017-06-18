@@ -1,0 +1,35 @@
+---
+# ansible-playbook -i hosts site.yaml [-ask-become-pass] [--ask-vault-pass] [--tags ...]
+
+- name: Add user
+  hosts: all
+  roles:
+    - adduser
+  tags:
+    - adduser
+  gather_facts: no
+
+- name: Update configuration files
+  hosts: all
+  roles:
+    - config_files
+  tags:
+    - config_files
+  gather_facts: no
+
+- name: Install Applications
+  hosts: all
+  roles:
+    - applications
+  tags:
+    - applications
+  gather_facts: no
+
+- name: ssh key
+  hosts: all
+  roles:
+    - ssh
+  tags:
+    - ssh
+  gather_facts: no
+

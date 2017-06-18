@@ -1,0 +1,11 @@
+---
+- name: template | Create files on host
+  become: yes
+  template:
+    src: vault_pass.txt.j2
+    dest: /home/abonaparte/.vault_pass.txt
+    owner: abonaparte
+    group: abonaparte
+    mode: 0600
+
+
