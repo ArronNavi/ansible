@@ -1,0 +1,7 @@
+---
+- name: add_key | authorized key and upload
+  become: yes
+  authorized_key:
+    user: abonaparte
+    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+

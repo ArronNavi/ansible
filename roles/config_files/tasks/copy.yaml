@@ -1,0 +1,23 @@
+---
+- name: copy | Copy config files to root directory on host
+  become: yes
+  copy:
+    src: "{{ item }}" 
+    dest: /home/abonaparte/{{ item }}
+    owner: abonaparte
+    group: abonaparte
+    mode: 0644
+  with_items:
+    - .bashrc
+    - .vimrc
+    - .git-completion
+
+- name: copy | Copy apt config file to host
+  become: yes
+  copy:
+    src: 90forceyes
+    dest: /etc/apt/apt.conf.d/90forceyes
+    owner: root
+    group: root
+    mode: 0644
+
